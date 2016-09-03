@@ -2,10 +2,7 @@ const fs = require('fs');
 
 class api {
   constructor () {
-    readInitialState()
-      .then( (fileContents) => {
-        this.state = JSON.parse(fileContents);
-      })
+    this.state = readInitialState()
   }
 
   get () {
@@ -26,15 +23,18 @@ module.exports = new api();
 // private
 
 function readInitialState() {
-  return new Promise( (resolve, reject) => {
-    fs.readFile('store.json', 'utf8', (err, data) => {
-      if (!err) {
-        resolve(data)
-      } else {
-        reject(err)
-      }
-    })
-  })
+  try {
+    return fs.readFileSync('store.json', 'utf8')
+  } catch (err) {
+    switch (err.code) {
+      case 'ENOENT':
+        return {}
+      case 'EACCES':
+        throw 'Error: Cannot read store file.'
+      default:
+        throw `Error: ${err}`
+    }
+  }
 }
 
 function writeState (state) {
