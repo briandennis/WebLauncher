@@ -1,4 +1,4 @@
-const spawn = require('child_process').spawn;
+const exec = require('child_process').exec;
 
 module.exports = (api, collection) => {
 
@@ -25,15 +25,12 @@ function executeSites (api) {
     linux: 'xdg-open'
   }
 
-  const sites = api.get('sites')
+  const sites = api.get('sites').map( (site) => {
+    return `https://${site}`
+  })
 
   if (sites.length) {
-    const command = sites.reduce( (prev, site, index) => {
-      const seperator = index === sites.length ? '' : '|'
-      return `${prev} ${openCommands[process.platform]} ${site} ${seperator}`
-    }, '')
-
-    spawn(command)
+    exec(`${openCommands[process.platform]} ${sites.join(' ')}`)
   }
 }
 
