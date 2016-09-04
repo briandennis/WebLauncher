@@ -1,8 +1,8 @@
-
+const fileIo = require('./fileIo')
 
 class api {
   constructor () {
-    this.state = readInitialState()
+    this.state = fileIo.readInitialState()
   }
 
   get () {
@@ -14,7 +14,7 @@ class api {
   }
 
   save () {
-    return writeState(this.state)
+    return fileIo.writeState(this.state)
   }
 }
 
