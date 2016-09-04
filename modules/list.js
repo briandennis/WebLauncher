@@ -21,10 +21,11 @@ function printSites (api) {
   const sites = api.get('sites');
 
   if (sites.length) {
-    console.log(chalk.green('Sites:\n'))
+    console.log(chalk.green('\nSites:\n'))
     sites.forEach( (site, index) => {
-      console.log(`${index}\t\t${site}`)
+      console.log(`${chalk.yellow(`${index}:`)}\t${chalk.cyan(site)}`)
     })
+    console.log('\n')
   } else {
     console.log(chalk.green('No sites stored.'))
   }
