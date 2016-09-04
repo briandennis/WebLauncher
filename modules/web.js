@@ -1,6 +1,7 @@
 const chalk = require('chalk')
 const list = require('./list')
 const error = require('./error')
+const execute = require('./execute')
 
 module.exports = (api, args) => {
 
@@ -19,11 +20,14 @@ module.exports = (api, args) => {
     case 'clear':
       clearSites(api, args)
       break
+
+    case undefined:
+      execute(api, 'site')
+      break
   }
 }
 
 function addSites (api, args) {
-  // validate input
   if (args.length) {
     api.add('sites', args)
   } else {
