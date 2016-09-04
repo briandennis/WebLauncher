@@ -30,7 +30,7 @@ function executeSites (api) {
   if (sites.length) {
     const command = sites.reduce( (prev, site, index) => {
       const seperator = index === sites.length ? '' : '|'
-      return `${prev} ${openCommands(process.platform)} ${site} ${seperator}`
+      return `${prev} ${openCommands[process.platform]} ${site} ${seperator}`
     }, '')
 
     spawn(command)
