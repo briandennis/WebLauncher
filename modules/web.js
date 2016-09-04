@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const list = require('./list')
 
 module.exports = (api, args) => {
@@ -7,7 +8,7 @@ module.exports = (api, args) => {
   switch (command) {
     case 'list':
     case 'ls':
-      listSites('web')
+      list(api, 'sites')
       break
 
     case 'add':
@@ -20,12 +21,9 @@ module.exports = (api, args) => {
   }
 }
 
-function listSites () {
-  console.log('list triggered!')
-}
-
 function addSites () {
   console.log('add triggered!')
+
 }
 
 function clearSites () {
