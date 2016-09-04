@@ -16,6 +16,10 @@ class api {
   save () {
     return fileIo.writeState(this.state)
   }
+
+  add (list, item) {
+    api[list].push(item)
+  }
 }
 
 module.exports = new api();
