@@ -17,7 +17,7 @@ module.exports = (api, args) => {
       break
 
     case 'clear':
-      clearSites()
+      clearSites(api, args)
       break
   }
 }
@@ -31,6 +31,15 @@ function addSites (api, args) {
   }
 }
 
-function clearSites () {
-  console.log('clear triggered!')
+function clearSites (api, args) {
+  const validatedArgs = args.filter( (arg) => {
+    return !isNaN(parseInt(arg))
+  })
+  if (args.length && validatedArgs.length === args.length) {
+    api.remove('sites', validatedArgs)
+  } else if (!args.length) {
+    api.remove('sites')
+  } else {
+    error(`${chalk.underline.bgRed('clear')} must have 0 or more integer arguments.`)
+  }
 }

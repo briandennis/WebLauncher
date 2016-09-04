@@ -30,6 +30,16 @@ class api {
     console.log(typeof this.state)
     this.state[list] = [...this.state[list], ...items]
   }
+
+  remove (list, indexes) {
+    if (indexes) {
+      this.state[list] = this.state[list].filter( (item, index) => {
+        return !indexes.includes(index)
+      })
+    } else {
+      this.state[list] = [];
+    }
+  }
 }
 
 module.exports = new api();
