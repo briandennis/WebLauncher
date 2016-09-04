@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const chalk = require('chalk')
+const api = require('./api')
+
+const web = require('./modules/web')
+const commands = require('./modules/commands')
+const execute = require('./modules/execute')
+const help = require('./modules/help')
+
+const command = process.argv[2]
+const args = process.argv.slice(3)
+
+switch (command) {
+  case 'web':
+    web(api, args)
+    break
+
+  case 'commands':
+    commands(api, args)
+    break
+
+  case undefined:
+    execute(api, args)
+    break
+
+  default:
+    help()
+}
