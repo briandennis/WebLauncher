@@ -5,8 +5,17 @@ class api {
     this.state = fileIo.readInitialState()
   }
 
-  get () {
-    return this.state
+  get (collection) {
+    switch (collection) {
+      case 'sites':
+        return this.state.sites
+
+      case 'commands':
+        return this.state.commands
+
+      default:
+        return this.state
+    }
   }
 
   set (newState) {
@@ -17,8 +26,8 @@ class api {
     return fileIo.writeState(this.state)
   }
 
-  add (list, item) {
-    api[list].push(item)
+  add (list, items) {
+    this.state[list] = [...this.state[list], ...items]
   }
 }
 
