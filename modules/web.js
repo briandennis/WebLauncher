@@ -1,5 +1,6 @@
 const chalk = require('chalk')
 const list = require('./list')
+const error = require('./error')
 
 module.exports = (api, args) => {
 
@@ -12,7 +13,7 @@ module.exports = (api, args) => {
       break
 
     case 'add':
-      addSites()
+      addSites(api, args)
       break
 
     case 'clear':
@@ -21,9 +22,13 @@ module.exports = (api, args) => {
   }
 }
 
-function addSites () {
-  console.log('add triggered!')
-
+function addSites (api, args) {
+  // validate input
+  if (args.length) {
+    api.add(args)
+  } else {
+    error(`${chalk.underline.bgRed('add')} must be followed by URLS to be added.`)
+  }
 }
 
 function clearSites () {

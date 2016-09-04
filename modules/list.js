@@ -1,10 +1,10 @@
 const chalk = require('chalk')
 
-module.exports = (api, collection) => {
+module.exports = (api, list) => {
 
-  switch (collection) {
+  switch (list) {
     case 'sites':
-      printSites()
+      printSites(api)
       break
 
     case 'commands':
@@ -17,7 +17,7 @@ module.exports = (api, collection) => {
   }
 }
 
-function printSites () {
+function printSites (api) {
   const sites = api.get();
 
   if (sites.length) {
