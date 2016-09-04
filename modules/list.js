@@ -8,12 +8,12 @@ module.exports = (api, list) => {
       break
 
     case 'commands':
-      printCommands()
+      printCommands(api)
       break
 
     default:
-      printSites()
-      printCommands()
+      printSites(api)
+      printCommands(api)
   }
 }
 
@@ -29,4 +29,8 @@ function printSites (api) {
   } else {
     console.log(chalk.green('No sites stored.'))
   }
+}
+
+function printCommands () {
+
 }

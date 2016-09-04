@@ -23,7 +23,7 @@ switch (command) {
 
   case 'ls':
   case 'list':
-    list()
+    list(api)
     break
 
   case undefined:
