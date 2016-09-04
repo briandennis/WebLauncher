@@ -36,9 +36,10 @@ function addSites (api, args) {
 }
 
 function clearSites (api, args) {
-  const validatedArgs = args.filter( (arg) => {
-    return !isNaN(parseInt(arg))
-  })
+  const validatedArgs = args
+    .map( arg => parseInt(arg))
+    .filter( arg => !isNaN(arg))
+
   if (args.length && validatedArgs.length === args.length) {
     api.remove('sites', validatedArgs)
   } else if (!args.length) {
