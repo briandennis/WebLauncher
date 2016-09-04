@@ -18,7 +18,7 @@ module.exports = (api, list) => {
 }
 
 function printSites (api) {
-  const sites = api.get();
+  const sites = api.get('sites');
 
   if (sites.length) {
     console.log(chalk.green('Sites:\n'))

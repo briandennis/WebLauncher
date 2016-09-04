@@ -25,7 +25,7 @@ module.exports = (api, args) => {
 function addSites (api, args) {
   // validate input
   if (args.length) {
-    api.add(args)
+    api.add('sites', args)
   } else {
     error(`${chalk.underline.bgRed('add')} must be followed by URLS to be added.`)
   }

@@ -27,6 +27,7 @@ class api {
   }
 
   add (list, items) {
+    console.log(typeof this.state)
     this.state[list] = [...this.state[list], ...items]
   }
 }

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 function readInitialState() {
   try {
-    return fs.readFileSync('store.json', 'utf8')
+    return JSON.parse(fs.readFileSync('store.json', 'utf8'))
   } catch (err) {
     switch (err.code) {
       case 'ENOENT':
