@@ -14,11 +14,8 @@ const args = process.argv.slice(3)
 
 switch (command) {
   case 'sites':
-    collection(api, args, 'sites')
-    break
-
   case 'commands':
-    commands(api, args, 'commands')
+    collection(api, args, command)
     break
 
   case 'ls':

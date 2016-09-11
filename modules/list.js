@@ -4,26 +4,24 @@ module.exports = (api, list) => {
 
   switch (list) {
     case 'sites':
-      printSites(api)
-      break
-
     case 'commands':
-      printCommands(api)
-      break
+      printCollection(api, list);
+      break;
 
     default:
-      printSites(api)
-      printCommands(api)
+      printCollection(api, 'sites');
+      printCollection(api, 'commands');
   }
 }
 
-function printSites (api) {
-  const sites = api.get('sites');
+function printCollection (api, collection) {
+  const items = api.get(collection);
 
-  if (sites.length) {
-    console.log(chalk.green('\nSites:\n'))
-    sites.forEach( (site, index) => {
-      console.log(`${chalk.yellow(`${index}:`)}\t${chalk.cyan(site)}`)
+  if (items.length) {
+    const capCollection = `${collection.slice(0,1).toUpperCase()}${collection.slice(1)}`
+    console.log(chalk.green(`\n${capCollection}:\n`))
+    items.forEach( (item, index) => {
+      console.log(`${chalk.yellow(`${index}:`)}\t${chalk.cyan(item)}`)
     })
     console.log('\n')
   } else {
