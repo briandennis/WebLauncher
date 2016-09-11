@@ -31,6 +31,16 @@ class api {
     }
   }
 
+  removeList (list) {
+    if (this.state[list]) {
+      this.state = this.state.filter( (list) => {
+        return list.name !== list
+      })
+    } else {
+      throw 'List does not exist.'
+    }
+  }
+
   addItems (list, items) {
     if (this.state[list]) {
       this.state[list] = [...this.state[list], ...items]
