@@ -1,34 +1,30 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk')
-const api = require('./api')
+const chalk       = require('chalk')
+const api         = require('./api')
 
-const collection = require('./modules/collection')
-const commands = require('./modules/commands')
-const execute = require('./modules/execute')
-const help = require('./modules/help')
-const list = require('./modules/list')
+const collection  = require('./modules/collection')
+const commands    = require('./modules/commands')
+const execute     = require('./modules/execute')
+const help        = require('./modules/help')
+const list        = require('./modules/list')
 
 const command = process.argv[2]
 const args = process.argv.slice(3)
 
 switch (command) {
-  case 'sites':
-  case 'commands':
-    collection(api, args, command)
-    break
 
   case 'ls':
   case 'list':
     list(api)
     break
 
+  case 'help':
   case undefined:
-    execute(api, args)
-    break
+    help()
 
   default:
-    help()
+    collection(api, args, command)
 }
 
 api.save()
