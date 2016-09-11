@@ -23,23 +23,33 @@ class api {
     return fileIo.writeState(this.state)
   }
 
+  // lists
+
   addList (list) {
-    if (!this.state[list]) {
-      this.state[list] = []
+    const results = this.state.filter( (list) => {
+      return list.name === collection
+    })
+
+    if (!results.length) {
+      this.state.push({ name: list, sites: [] })
     } else {
       throw 'List already found.'
     }
   }
 
   removeList (list) {
-    if (this.state[list]) {
-      this.state = this.state.filter( (list) => {
-        return list.name !== list
-      })
+    const results = this.state.filter( (list) => {
+      return list.name === collection
+    })
+
+    if (results.length) {
+      this.state.filter( list => list.name !== collection)
     } else {
       throw 'List does not exist.'
     }
   }
+
+  // list items
 
   addItems (list, items) {
     if (this.state[list]) {
@@ -49,7 +59,7 @@ class api {
     }
   }
 
-  remove (list, indexes) {
+  removeItems (list, indexes) {
     if (this.state[list]) {
       if (indexes) {
         this.state[list] = this.state[list].filter( (item, index) => {

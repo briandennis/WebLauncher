@@ -1,4 +1,5 @@
 const error = require('./error')
+const help  = require('./help')
 
 module.exports = (api, args) => {
 
@@ -13,6 +14,10 @@ module.exports = (api, args) => {
     case 'delete':
     case '-d':
       removeList(api, args)
+
+    default:
+      help()
+
   }
 }
 
