@@ -17,7 +17,6 @@ module.exports = (api, args) => {
 
     default:
       help()
-
   }
 }
 

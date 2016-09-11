@@ -7,23 +7,19 @@ class api {
     this.state = fileIo.readInitialState()
   }
 
-  get (collection) {
-    const results = this.state.filter( (list) => {
-      return list.name === collection
-    })
-
-    if (results.length) {
-      return results[0]
-    } else {
-      throw 'Collection not found.'
-    }
-  }
-
   save () {
     return fileIo.writeState(this.state)
   }
 
   // lists
+
+  getList(name) {
+    const results = this.state.filter( (list) => {
+      return list.name === name
+    })
+
+    return results.length ? results[0] : null
+  }
 
   addList (list) {
     const results = this.state.filter( (list) => {
@@ -37,12 +33,10 @@ class api {
     }
   }
 
-  removeList (list) {
-    const results = this.state.filter( (list) => {
-      return list.name === collection
-    })
+  removeList (name) {
+    const list = this.getList(name)
 
-    if (results.length) {
+    if (list) {
       this.state.filter( list => list.name !== collection)
     } else {
       throw 'List does not exist.'
@@ -51,22 +45,36 @@ class api {
 
   // list items
 
-  addItems (list, items) {
-    if (this.state[list]) {
-      this.state[list] = [...this.state[list], ...items]
-    } {
+  get (name) {
+    const list = this.getList(name)
+
+    if (results.length) {
+      return results[0]
+    } else {
+      throw 'Collection not found.'
+    }
+  }
+
+  addItems (name, items) {
+    const list = this.getList(name)
+
+    if (list) {
+      list.sites = list.sites.concat(items)
+    } else {
       throw 'List not found.'
     }
   }
 
-  removeItems (list, indexes) {
-    if (this.state[list]) {
+  removeItems (name, indexes) {
+    const list = this.getList(name)
+
+    if (list) {
       if (indexes) {
-        this.state[list] = this.state[list].filter( (item, index) => {
+        list.sites = list.sites.filter( (item, index) => {
           return !indexes.includes(index)
         })
       } else {
-        this.state[list] = [];
+        list.sites = [];
       }
     } else {
       throw 'List not found.'
