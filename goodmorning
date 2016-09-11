@@ -19,12 +19,14 @@ switch (command) {
     list(api)
     break
 
-  case 'add':
-
+  case 'list':
+    list(args)
+    break
 
   case 'help':
   case undefined:
     help()
+    break
 
   default:
     collection(api, args, command)
