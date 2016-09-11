@@ -7,7 +7,7 @@ const collection  = require('./modules/collection')
 const commands    = require('./modules/commands')
 const execute     = require('./modules/execute')
 const help        = require('./modules/help')
-const list        = require('./modules/list')
+const print        = require('./modules/print')
 
 const command = process.argv[2]
 const args = process.argv.slice(3)
@@ -18,6 +18,9 @@ switch (command) {
   case 'list':
     list(api)
     break
+
+  case 'add':
+
 
   case 'help':
   case undefined:
