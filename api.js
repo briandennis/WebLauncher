@@ -1,4 +1,6 @@
 const fileIo = require('./fileIo')
+const error = require('./modules/error')
+const chalk = require('chalk')
 
 class api {
   constructor () {
@@ -6,37 +8,48 @@ class api {
   }
 
   get (collection) {
-    switch (collection) {
-      case 'sites':
-        return this.state.sites
+    const results = this.state.filter( (list) => {
+      return list.name === collection
+    })
 
-      case 'commands':
-        return this.state.commands
-
-      default:
-        return this.state
+    if (results.length) {
+      return results[0]
+    } else {
+      throw 'Collection not found.'
     }
-  }
-
-  set (newState) {
-    this.state =  newState
   }
 
   save () {
     return fileIo.writeState(this.state)
   }
 
-  add (list, items) {
-    this.state[list] = [...this.state[list], ...items]
+  addList (list) {
+    if (!this.state[list]) {
+      this.state[list] = []
+    } else {
+      throw 'List already found.'
+    }
+  }
+
+  addItems (list, items) {
+    if (this.state[list]) {
+      this.state[list] = [...this.state[list], ...items]
+    } {
+      throw 'List not found.'
+    }
   }
 
   remove (list, indexes) {
-    if (indexes) {
-      this.state[list] = this.state[list].filter( (item, index) => {
-        return !indexes.includes(index)
-      })
+    if (this.state[list]) {
+      if (indexes) {
+        this.state[list] = this.state[list].filter( (item, index) => {
+          return !indexes.includes(index)
+        })
+      } else {
+        this.state[list] = [];
+      }
     } else {
-      this.state[list] = [];
+      throw 'List not found.'
     }
   }
 }

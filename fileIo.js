@@ -6,10 +6,7 @@ function readInitialState() {
   } catch (err) {
     switch (err.code) {
       case 'ENOENT':
-        return {
-          sites: [],
-          commands: []
-        }
+        return []
       case 'EACCES':
         throw 'Error: Cannot read store file.'
       default:
