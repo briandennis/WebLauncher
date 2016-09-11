@@ -3,7 +3,7 @@
 const chalk = require('chalk')
 const api = require('./api')
 
-const web = require('./modules/web')
+const collection = require('./modules/collection')
 const commands = require('./modules/commands')
 const execute = require('./modules/execute')
 const help = require('./modules/help')
@@ -13,12 +13,12 @@ const command = process.argv[2]
 const args = process.argv.slice(3)
 
 switch (command) {
-  case 'web':
-    web(api, args)
+  case 'sites':
+    collection(api, args, 'sites')
     break
 
   case 'commands':
-    commands(api, args)
+    commands(api, args, 'commands')
     break
 
   case 'ls':
