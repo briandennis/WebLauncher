@@ -1,4 +1,4 @@
-const error = require('error')
+const error = require('./error')
 
 module.exports = (api, args) => {
 
