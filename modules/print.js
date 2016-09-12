@@ -8,8 +8,13 @@ module.exports = (api, list) => {
       printCollection(api.get(list))
       console.log('\n')
     } else {
-      api.get().forEach(printCollection)
-      console.log('\n')
+      const lists = api.get()
+      if (lists.length) {
+        lists.forEach(printCollection)
+        console.log('\n')
+      } else {
+        console.log(chalk.green('\nNo herds found.\n'))
+      }
     }
   } catch (e) {
     error(e)

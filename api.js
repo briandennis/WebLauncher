@@ -65,7 +65,6 @@ class api {
 
   removeItems (name, indexes) {
     const list = this.getList(name)
-    console.log(list.sites)
 
     if (list) {
       if (indexes) {
