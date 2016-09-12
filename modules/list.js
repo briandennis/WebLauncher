@@ -11,13 +11,15 @@ module.exports = (api, args) => {
       addList(api, args)
       break
 
+    case 'clear':
     case 'delete':
     case '-d':
       removeList(api, args)
       break
 
+    case 'help':
     default:
-      help()
+      help('groups')
   }
 }
 
