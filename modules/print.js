@@ -22,9 +22,7 @@ module.exports = (api, list) => {
 }
 
 function printCollection (list) {
-
-  const capCollection = `${list.name.slice(0,1).toUpperCase()}${list.name.slice(1)}`
-  console.log(chalk.green(`\n${capCollection}:\n`))
+  console.log(chalk.green(`\n${list.name}:\n`))
 
   if (list.sites.length) {
     list.sites.forEach( (item, index) => {
