@@ -13,7 +13,7 @@ module.exports = (api, list) => {
         lists.forEach(printCollection)
         console.log('\n')
       } else {
-        console.log(chalk.green('\nNo herds found.\n'))
+        console.log(chalk.green('\nNo groups found.\n'))
       }
     }
   } catch (e) {

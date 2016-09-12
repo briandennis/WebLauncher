@@ -25,6 +25,8 @@ list [ls] \t\t\t List all groups.
 \n
 group    \t\t\t Add or remove a group.
 \n
+run [open] {groupName} \t\t Open group in default browser.
+\n
 help    \t\t\t Print help menu.
 \n
 {groupName} \t\t\t Run, add or remove sites from specified group.
