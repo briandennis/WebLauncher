@@ -13,12 +13,16 @@ class api {
 
   // lists
 
-  getList(name) {
+  getList (name) {
     const results = this.state.filter( (list) => {
       return list.name === name
     })
 
     return results.length ? results[0] : null
+  }
+
+  listExists (name) {
+    return !!this.getList(name)
   }
 
   addList (name) {

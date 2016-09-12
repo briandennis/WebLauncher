@@ -9,6 +9,7 @@ const execute     = require('./modules/execute')
 const help        = require('./modules/help')
 const print       = require('./modules/print')
 const list        = require('./modules/list')
+const error       = require('./modules/error')
 
 const command = process.argv[2]
 const args = process.argv.slice(3)
@@ -34,7 +35,12 @@ switch (command) {
     break
 
   default:
-    collection(api, args, command)
+    if (api.listExists(command)) {
+      collection(api, args, command)
+    } else {
+      error('List not found.')
+      help('command')
+    }
 }
 
 api.save()
