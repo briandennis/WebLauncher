@@ -2,6 +2,7 @@ const chalk = require('chalk')
 const print = require('./print')
 const error = require('./error')
 const execute = require('./execute')
+const help = require('./help')
 
 module.exports = (api, args, collection) => {
 
@@ -14,16 +15,23 @@ module.exports = (api, args, collection) => {
       break
 
     case 'add':
+    case '-a':
       addSites(api, args, collection)
       break
 
     case 'clear':
+    case 'remove':
+    case 'delete':
+    case '-d':
       clearSites(api, args, collection)
       break
 
     case undefined:
       execute(api, collection)
       break
+
+    default:
+      help()
   }
 }
 

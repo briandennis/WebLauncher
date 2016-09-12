@@ -21,15 +21,13 @@ class api {
     return results.length ? results[0] : null
   }
 
-  addList (list) {
-    const results = this.state.filter( (list) => {
-      return list.name === collection
-    })
+  addList (name) {
+    const list = this.getList(name)
 
-    if (!results.length) {
-      this.state.push({ name: list, sites: [] })
+    if (!list) {
+      this.state.push({ name, sites: [] })
     } else {
-      throw 'List already found.'
+      throw 'List already exists.'
     }
   }
 
@@ -67,6 +65,7 @@ class api {
 
   removeItems (name, indexes) {
     const list = this.getList(name)
+    console.log(list.sites)
 
     if (list) {
       if (indexes) {

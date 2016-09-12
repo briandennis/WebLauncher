@@ -24,8 +24,8 @@ module.exports = (api, args) => {
 function addList (api, args) {
   try {
     api.addList(args[0])
-  } catch (error) {
-    error(error)
+  } catch (e) {
+    error(e)
   }
 }
 

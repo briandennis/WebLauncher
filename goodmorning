@@ -24,6 +24,10 @@ switch (command) {
     print(api)
     break
 
+  case 'herd':
+    list(api, args)
+    break
+
   case 'help':
   case undefined:
     help()

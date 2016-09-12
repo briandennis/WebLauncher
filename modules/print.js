@@ -5,10 +5,11 @@ module.exports = (api, list) => {
 
   try {
     if (list) {
-      console.log(list)
       printCollection(api.get(list))
+      console.log('\n')
     } else {
       api.get().forEach(printCollection)
+      console.log('\n')
     }
   } catch (e) {
     error(e)
@@ -28,5 +29,4 @@ function printCollection (list) {
   } else {
     console.log(chalk.cyan('No sites stored.'))
   }
-  console.log('\n')
 }
