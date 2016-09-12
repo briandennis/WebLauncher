@@ -3,7 +3,7 @@
 const chalk       = require('chalk')
 const api         = require('./api')
 
-const collection  = require('./modules/collection')
+const group       = require('./modules/group')
 const commands    = require('./modules/commands')
 const execute     = require('./modules/execute')
 const help        = require('./modules/help')
@@ -19,6 +19,7 @@ switch (command) {
   case 'ls':
   case 'list':
     if(args.length !== 0) {
+      error('Nope, not using that right!')
       help()
       break
     }
@@ -29,6 +30,18 @@ switch (command) {
     list(api, args)
     break
 
+  case 'open':
+  case 'run':
+    if (args.length === 1 && api.listExists(args[0])) {
+      execute(api, args[0])
+      break
+    } else {
+      console.log(args.length)
+      error('Nope, not using that right!')
+      help()
+      break
+    }
+
   case 'help':
   case undefined:
     help()
@@ -36,7 +49,7 @@ switch (command) {
 
   default:
     if (api.listExists(command)) {
-      collection(api, args, command)
+      group(api, args, command)
     } else {
       error('Group not found. Did you mean to do something else?')
       help('root')

@@ -6,7 +6,7 @@ module.exports = (api, list) => {
 
   try {
     if (list) {
-      executeList(api.get(list))
+      executeList(api, api.get(list))
     } else {
       api.get().forEach(executeList.bind(api))
     }
@@ -28,18 +28,8 @@ function executeList (api, list) {
   })
 
   if (sites.length) {
-    console.log(chalk.blue('\ntending to herd...'))
+    console.log(chalk.yellow('\launching...'))
     exec(`${openCommands[process.platform]} ${sites.join(' ')}`)
-    console.log(`\n
-        . - . ' \` ;  \` - .
-      (_,         .-:'  \`; \`-._
-    ,'o"(        (_,           )
-   (__,-'      ,'o"(            )>
-      (       (__,-'            )
-       \`-'._.--._(             )
-          |||  |||\`-'._.--._.-'
-                     |||  |||
-      \n`)
-    console.log(chalk.blue('Herd tended to.\n'))
+    console.log(chalk.green('Done.'))
   }
 }

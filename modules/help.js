@@ -21,14 +21,14 @@ module.exports = (section) => {
 function printTopLevel () {
   console.log(chalk.yellow(`
 
-    list [ls] \t\t\t List all groups.
-    \n
-    group    \t\t\t Add or remove a group.
-    \n
-    help    \t\t\t Print help menu.
-    \n
-    {groupName} \t\t Run, add or remove sites from specified group.
-    `))
+list [ls] \t\t\t List all groups.
+\n
+group    \t\t\t Add or remove a group.
+\n
+help    \t\t\t Print help menu.
+\n
+{groupName} \t\t\t Run, add or remove sites from specified group.
+`))
     printKey()
 }
 

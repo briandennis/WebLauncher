@@ -19,6 +19,7 @@ module.exports = (api, args) => {
 
     case 'help':
     default:
+      error('Not sure what to do there.')
       help('groups')
   }
 }
