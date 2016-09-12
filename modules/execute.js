@@ -8,7 +8,7 @@ module.exports = (api, collection) => {
     linux: 'xdg-open'
   }
 
-  const sites = api.get(collection).map( (site) => {
+  const sites = api.get(collection).sites.map( (site) => {
     return `http://${site}`
   })
 

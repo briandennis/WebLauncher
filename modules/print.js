@@ -15,16 +15,17 @@ module.exports = (api, list) => {
 
 }
 
-function printCollection (api, list) {
+function printCollection (list) {
 
-  if (items.length) {
-    const capCollection = `${list.name.slice(0,1).toUpperCase()}${list.name.slice(1)}`
-    console.log(chalk.green(`\n${capCollection}:\n`))
+  const capCollection = `${list.name.slice(0,1).toUpperCase()}${list.name.slice(1)}`
+  console.log(chalk.green(`\n${capCollection}:\n`))
+
+  if (list.sites.length) {
     items.forEach( (item, index) => {
       console.log(`${chalk.yellow(`${index}:`)}\t${chalk.cyan(item)}`)
     })
-    console.log('\n')
   } else {
     console.log(chalk.green('No sites stored.'))
   }
+  console.log('\n')
 }

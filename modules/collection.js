@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const list = require('./list')
+const print = require('./print')
 const error = require('./error')
 const execute = require('./execute')
 
@@ -10,7 +10,7 @@ module.exports = (api, args, collection) => {
   switch (command) {
     case 'list':
     case 'ls':
-      list(api, collection)
+      print(api, collection)
       break
 
     case 'add':

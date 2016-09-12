@@ -48,8 +48,8 @@ class api {
   get (name) {
     const list = this.getList(name)
 
-    if (results.length) {
-      return results[0]
+    if (list) {
+      return list
     } else {
       throw 'Collection not found.'
     }
