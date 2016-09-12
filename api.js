@@ -51,7 +51,7 @@ class api {
     if (list) {
       return list
     } else {
-      throw 'Collection not found.'
+      return this.state
     }
   }
 

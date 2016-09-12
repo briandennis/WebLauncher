@@ -5,9 +5,10 @@ module.exports = (api, list) => {
 
   try {
     if (list) {
+      console.log(list)
       printCollection(api.get(list))
     } else {
-      api.get.forEach( list => (api, list))
+      api.get().forEach(printCollection)
     }
   } catch (e) {
     error(e)

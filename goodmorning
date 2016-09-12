@@ -17,7 +17,11 @@ switch (command) {
 
   case 'ls':
   case 'list':
-    list(api, args)
+    if(args.length !== 0) {
+      help()
+      break
+    }
+    print(api)
     break
 
   case 'help':
