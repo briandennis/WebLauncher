@@ -14,6 +14,7 @@ module.exports = (api, args) => {
     case 'delete':
     case '-d':
       removeList(api, args)
+      break
 
     default:
       help()
@@ -31,7 +32,7 @@ function addList (api, args) {
 function removeList (api, args) {
   try {
     api.removeList(args[0])
-  } catch (error) {
-    error(error)
+  } catch (e) {
+    error(e)
   }
 }

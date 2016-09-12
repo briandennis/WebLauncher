@@ -37,7 +37,7 @@ class api {
     const list = this.getList(name)
 
     if (list) {
-      this.state.filter( list => list.name !== collection)
+      this.state.filter( list => list.name !== name)
     } else {
       throw 'List does not exist.'
     }

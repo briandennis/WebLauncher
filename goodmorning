@@ -20,10 +20,6 @@ switch (command) {
     list(api, args)
     break
 
-  case 'list':
-    list(args, args)
-    break
-
   case 'help':
   case undefined:
     help()

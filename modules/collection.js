@@ -22,14 +22,14 @@ module.exports = (api, args, collection) => {
       break
 
     case undefined:
-      execute(api, collection, collection)
+      execute(api, collection)
       break
   }
 }
 
 function addSites (api, args, collection) {
   if (args.length) {
-    api.add(collection, args)
+    api.addItems(collection, args)
   } else {
     error(`${chalk.underline.bgRed('add')} must be followed by URLS to be added.`)
   }
@@ -41,9 +41,9 @@ function clearSites (api, args, collection) {
     .filter( arg => !isNaN(arg))
 
   if (args.length && validatedArgs.length === args.length) {
-    api.remove(collection, validatedArgs)
+    api.removeItems(collection, validatedArgs)
   } else if (!args.length) {
-    api.remove(collection)
+    api.removeItems(collection)
   } else {
     error(`${chalk.underline.bgRed('clear')} must have 0 or more integer arguments.`)
   }

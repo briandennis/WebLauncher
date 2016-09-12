@@ -21,11 +21,11 @@ function printCollection (list) {
   console.log(chalk.green(`\n${capCollection}:\n`))
 
   if (list.sites.length) {
-    items.forEach( (item, index) => {
+    list.sites.forEach( (item, index) => {
       console.log(`${chalk.yellow(`${index}:`)}\t${chalk.cyan(item)}`)
     })
   } else {
-    console.log(chalk.green('No sites stored.'))
+    console.log(chalk.cyan('No sites stored.'))
   }
   console.log('\n')
 }
