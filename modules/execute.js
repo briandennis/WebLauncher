@@ -31,5 +31,7 @@ function executeList (api, list) {
     console.log(chalk.yellow('\launching...'))
     exec(`${openCommands[process.platform]} ${sites.join(' ')}`)
     console.log(chalk.green('Done.'))
+  } else {
+    console.log(chalk.green(`No sites to run in `) + chalk.cyan(list.name))
   }
 }

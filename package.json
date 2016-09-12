@@ -1,6 +1,6 @@
 {
   "name": "website-launcher",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A CLI for quickly launching herds of websites.",
   "main": "index.js",
   "scripts": {

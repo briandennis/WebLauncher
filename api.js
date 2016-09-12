@@ -36,10 +36,9 @@ class api {
   }
 
   removeList (name) {
-    const list = this.getList(name)
-
-    if (list) {
-      this.state.filter( list => list.name !== name)
+    const listExists = this.listExists(name)
+    if (listExists) {
+      this.state = this.state.filter( list => (list.name !== name))
     } else {
       throw 'List does not exist.'
     }

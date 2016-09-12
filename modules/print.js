@@ -19,7 +19,6 @@ module.exports = (api, list) => {
   } catch (e) {
     error(e)
   }
-
 }
 
 function printCollection (list) {
