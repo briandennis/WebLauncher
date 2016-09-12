@@ -25,7 +25,7 @@ switch (command) {
     print(api)
     break
 
-  case 'herd':
+  case 'group':
     list(api, args)
     break
 
@@ -38,8 +38,8 @@ switch (command) {
     if (api.listExists(command)) {
       collection(api, args, command)
     } else {
-      error('List not found.')
-      help('command')
+      error('Group not found. Did you mean to do something else?')
+      help('root')
     }
 }
 
