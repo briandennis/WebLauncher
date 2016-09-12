@@ -8,7 +8,7 @@ module.exports = (section) => {
         printTopLevel()
         break
 
-      case 'group'
+      case 'group':
         printGroup()
         break
     }
@@ -28,21 +28,22 @@ function printTopLevel () {
     printKey()
 }
 
-function printCollection () {
+function printGroup () {
+  console.log(chalk.green('web {groupName} :'))
   console.log(chalk.yellow(`
-
-    list [ls] \t\t\t List all sites in the group.
-    \n
-    add [-a] {site1} {site2} ...    \t\t\t Add sites to group.
-    \n
-    clear [delete] [-d] ?{siteIndex} \t\t\t Remove sites. Removes all sites if no indexes specified.
-    \n
-    help    \t\t\t Print help menu.
-    \n
+list [ls] \t\t\t\t List all sites in the group.
+\n
+add [-a] {site1} {site2} ...    \t Add sites to group.
+\n
+clear [delete] [-d] ?{siteIndex} \t Remove sites. If no args, removes all.
+\n
+run [open] \t\t\t\t Open group in default browser.
+\n
+help    \t\t\t\t Print help menu.
     `))
     printKey()
 }
 
 function printKey () {
-  console.log(chalk.cyan('\tKey: [alias] {arg} ?{optionalArg}'))
+  console.log(chalk.cyan('Key: [alias] {arg} ?{optionalArg}\n'))
 }

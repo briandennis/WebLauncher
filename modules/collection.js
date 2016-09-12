@@ -26,12 +26,14 @@ module.exports = (api, args, collection) => {
       clearSites(api, args, collection)
       break
 
-    case undefined:
+    case 'run':
+    case 'open':
       execute(api, collection)
       break
 
     default:
-      help()
+      error('Not sure what to do there.')
+      help('group')
   }
 }
 
