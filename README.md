@@ -1,5 +1,7 @@
-# Shep
+# Web Launcher
 
-A CLI for tending to herds of websites.
+A CLI for quickly launching the websites you use.
 
-Setup your websites with one command. Like aliases or bash scripts but more fluffy.
+
+
+Setup your web environment with one command. Easier than maintaining a bunch of different aliases and Bash scripts.

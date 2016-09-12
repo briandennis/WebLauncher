@@ -23,7 +23,7 @@ function printTopLevel () {
 
 list [ls] \t\t\t List all groups.
 \n
-group    \t\t\t Add or remove a group.
+groups    \t\t\t Add or remove a group.
 \n
 run [open] {groupName} \t\t Open group in default browser.
 \n
@@ -51,7 +51,7 @@ help    \t\t\t\t Print this help menu.
 }
 
 function printGroup () {
-  console.log(chalk.green('> web group :'))
+  console.log(chalk.green('> web groups :'))
   console.log(chalk.yellow(`
 list [ls] \t\t\t\t List all sites in the group.
 \n
