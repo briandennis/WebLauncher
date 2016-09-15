@@ -1,3 +1,5 @@
+<a href="https://badge.fury.io/js/web-launcher"><img src="https://badge.fury.io/js/web-launcher.svg" alt="npm version" height="18"></a>
+
 # Web Launcher
 
 A CLI for quickly launching the websites you use.
