@@ -37,10 +37,10 @@ web help
 would output
 
 ```
-list [ls] 			           List all groups.
+list [ls] 			         List all groups.
 
 
-groups    			           Add or remove a group.
+groups    			         Add or remove a group.
 
 
 run [open] {groupName} 		 Open group in default browser.
