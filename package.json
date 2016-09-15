@@ -1,7 +1,7 @@
 {
   "name": "web-launcher",
-  "version": "0.0.17",
-  "description": "A CLI for quickly launching herds of websites.",
+  "version": "0.0.18",
+  "description": "Easily open and manage website lists from the command line",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
