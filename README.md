@@ -46,10 +46,10 @@ groups    			           Add or remove a group.
 run [open] {groupName} 		 Open group in default browser.
 
 
-help    			             Print help menu.
+help    			         Print help menu.
 
 
-{groupName} 			         Run, add or remove sites from specified group.
+{groupName} 			     Run, add or remove sites from specified group.
 
 Key: [alias] {arg} ?{optionalArg}
 ```
