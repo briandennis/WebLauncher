@@ -6,7 +6,9 @@ A CLI for quickly launching the websites you use.
 
 <img src="http://g.recordit.co/oSRtrpL56T.gif" height="500" />
 
-<br />
+<br>
+<br>
+<br>
 
 
 
