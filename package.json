@@ -1,6 +1,6 @@
 {
   "name": "web-launcher",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Easily open and manage website lists from the command line",
   "main": "index.js",
   "scripts": {
