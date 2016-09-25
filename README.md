@@ -9,10 +9,10 @@ A CLI for quickly launching the websites you use.
 <img src="http://g.recordit.co/oSRtrpL56T.gif" height="500" />
 
 <br>
-<br>
-<br>
 
+**Requires Node version 6 or higher. Tested on Mac.**
 
+<br>
 
 Open and manage your web environments from the command line. Like using a bunch of aliases/Bash scripts or installing a chrome extension that supports link sets, but in a command line interface.
 
