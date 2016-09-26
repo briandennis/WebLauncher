@@ -60,7 +60,15 @@ class api {
     const list = this.getList(name)
 
     if (list) {
-      list.sites = list.sites.concat(items)
+      list.sites = list.sites.concat(items.map((site) => {
+        // replace https:// with http://
+        if (site.indexOf('https://') === 0) {
+          return `http://${site.slice('https://'.length)}`
+        } else if (site.indexOf('http://') === 0){
+          return site
+        }
+        return `http://${site}`
+      }));
     } else {
       throw 'List not found.'
     }
