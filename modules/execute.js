@@ -19,13 +19,18 @@ module.exports = (api, list) => {
 function executeList (api, list) {
   const openCommands = {
     darwin: 'open',
-    win32: 'start',
     linux: 'xdg-open'
+  }
+
+  function getCommandString(platform, sites) {
+    // run commands separated by & for windows
+    if (platform === 'win32') return sites.map(site => `start ${site}`).join(' & ')
+    return `${openCommands[process.platform]} ${sites.join(' ')}`
   }
 
   if (list.sites.length) {
     console.log(chalk.yellow('\launching...'))
-    exec(`${openCommands[process.platform]} ${list.sites.join(' ')}`)
+    exec(getCommandString(process.platform, list.sites))
     console.log(chalk.green('Done.'))
   } else {
     console.log(chalk.green(`No sites to run in `) + chalk.cyan(list.name))
