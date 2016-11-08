@@ -23,13 +23,9 @@ function executeList (api, list) {
     linux: 'xdg-open'
   }
 
-  const sites = list.sites.map( (site) => {
-    return `http://${site}`
-  })
-
-  if (sites.length) {
+  if (list.sites.length) {
     console.log(chalk.yellow('\launching...'))
-    exec(`${openCommands[process.platform]} ${sites.join(' ')}`)
+    exec(`${openCommands[process.platform]} ${list.sites.join(' ')}`)
     console.log(chalk.green('Done.'))
   } else {
     console.log(chalk.green(`No sites to run in `) + chalk.cyan(list.name))
