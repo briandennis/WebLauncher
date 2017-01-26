@@ -36,4 +36,25 @@ function writeState (state) {
   })
 }
 
-module.exports = { readInitialState, writeState };
+function deleteState () {
+  if (fs.existsSync(`${getUserHome()}/.web-launcher`)) {
+    return new Promise( (resolve, reject) => {
+      fs.unlink(`${getUserHome()}/.web-launcher/store.json`, (err) => {
+        if (!err) {
+          fs.rmdir(`${getUserHome()}/.web-launcher`, (err) => {
+            if (!err) {
+              resolve(true)
+            } else {
+              reject(err)
+            }
+          })
+        } else {
+          reject(err)
+        }
+      })
+    })
+  }
+  return Promise.resolve(true)
+}
+
+module.exports = { readInitialState, writeState, deleteState };
